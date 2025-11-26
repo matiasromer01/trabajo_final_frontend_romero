@@ -1,0 +1,138 @@
+:root {
+    /* Colors */
+    --search-border: #e0e0e0;
+    --search-bg: #f8f9fa;
+    --search-color: #333333;
+    --search-focus-border: #007bff;
+    --search-focus-bg: #ffffff;
+    --search-placeholder: #999999;
+    --clear-btn-color: #666666;
+    --clear-btn-hover-bg: #e0e0e0;
+}
+
+/* Modo oscuro */
+[data-theme="dark"] {
+    --search-border: #23272a;
+    --search-bg: #23272a;
+    --search-color: #e9edef;
+    --search-focus-border: #00a884;
+    --search-focus-bg: #181a20;
+    --search-placeholder: #5c6b73;
+    --clear-btn-color: #bfc9d1;
+    --clear-btn-hover-bg: #23272a;
+}
+
+.searchBar {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--search-border);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--search-bg);
+    color: var(--search-color);
+    transition: border-color 0.2s, background-color 0.2s;
+    box-sizing: border-box;
+}
+
+.searchInput:focus {
+    border-color: var(--search-focus-border);
+    background-color: var(--search-focus-bg);
+}
+
+.searchInput::placeholder {
+    color: var(--search-placeholder);
+    opacity: 1;
+}
+
+.clearButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--clear-btn-color);
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.clearButton:hover {
+    background-color: var(--clear-btn-hover-bg);
+}
+
+/* Responsive */
+
+/*---*/
+@media (max-width: 320px) {
+    .searchBar {
+        margin-bottom: 8px;
+    }
+
+    .searchInput {
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+        min-height: 36px;
+    }
+
+    .clearButton {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        right: 6px;
+    }
+}
+
+/*---*/
+@media (min-width: 321px) and (max-width: 480px) {
+    .searchBar {
+        margin-bottom: 10px;
+    }
+
+    .searchInput {
+        padding: 10px 14px;
+        font-size: 13px;
+        border-radius: 7px;
+        min-height: 38px;
+    }
+
+    .clearButton {
+        width: 22px;
+        height: 22px;
+        font-size: 16px;
+        right: 7px;
+    }
+}
+
+/*---*/
+@media (min-width: 481px) and (max-width: 768px) {
+    .searchBar {
+        margin-bottom: 12px;
+    }
+
+    .searchInput {
+        padding: 11px 15px;
+        font-size: 13px;
+        min-height: 40px;
+    }
+
+    .clearButton {
+        width: 23px;
+        height: 23px;
+        font-size: 17px;
+    }
+}

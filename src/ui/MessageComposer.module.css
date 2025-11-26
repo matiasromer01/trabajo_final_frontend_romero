@@ -1,0 +1,589 @@
+:root {
+    /* Colores */
+    --composer-bg: #f0f2f5;
+    --composer-border: #e1e8ed;
+    --input-bg: #ffffff;
+    --input-border: #e9edef;
+    --input-shadow: rgba(11, 20, 26, 0.13);
+    --input-color: #111b21;
+    --input-placeholder: #8696a0;
+    --button-bg: #00a884;
+    --button-bg-hover: #008f6e;
+    --button-bg-disabled: #8696a0;
+    --button-color: #fff;
+    --attach-emoji-color: #54656f;
+    --attach-emoji-hover-bg: #f5f6f6;
+    --attach-emoji-active-bg: #e9edef;
+    --attach-emoji-active-color: #00a884;
+    --sendButton-bg: #21bf63;
+}
+
+/* Modo oscuro */
+[data-theme="dark"] {
+    --composer-bg: #181a20;
+    --composer-border: #23272a;
+    --input-bg: #23272a;
+    --input-border: #23272a;
+    --input-shadow: rgba(0,0,0,0.25);
+    --input-color: #e9edef;
+    --input-placeholder: #5c6b73;
+    --button-bg: #005c4b;
+    --button-bg-hover: #008a6e;
+    --button-bg-disabled: #23272a;
+    --button-color: #e9edef;
+    --attach-emoji-color: #bfc9d1;
+    --attach-emoji-hover-bg: #23272a;
+    --attach-emoji-active-bg: #23272a;
+    --attach-emoji-active-color: #00a884;
+    --sendButton-bg: #005c4b;
+}
+
+.messageComposer {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: var(--composer-bg);
+    border-top: 1px solid var(--composer-border);
+    gap: 8px;
+    min-height: 60px;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.leftButtons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.inputContainer {
+    flex: 1;
+    position: relative;
+    min-height: 40px;
+    background-color: var(--input-bg);
+    border-radius: 24px;
+    padding: 0 12px;
+    box-shadow: 0 1px 3px var(--input-shadow);
+    border: 1px solid var(--input-border);
+}
+
+.messageInput {
+    width: 100%;
+    min-height: 40px;
+    max-height: 120px;
+    padding: 9px 0 11px 0;
+    border: none;
+    outline: none;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    background: transparent;
+    resize: none;
+    color: var(--input-color);
+    box-sizing: border-box;
+}
+
+.messageInput::placeholder {
+    color: var(--input-placeholder);
+    font-size: 15px;
+}
+
+.sendButton {
+    background-color: var(--sendButton-bg);
+    color: var(--button-color);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.sendButton:hover {
+    background-color: var(--button-bg-hover);
+}
+
+.sendButton:disabled {
+    background-color: var(--button-bg-disabled);
+    cursor: not-allowed;
+}
+
+.attachButton,
+.emojiButton {
+    background: none;
+    border: none;
+    color: var(--attach-emoji-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.18s, color 0.18s;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.attachButton:hover,
+.emojiButton:hover {
+    background-color: var(--attach-emoji-hover-bg);
+}
+
+.attachButton:active,
+.emojiButton:active {
+    background-color: var(--attach-emoji-active-bg);
+    color: var(--attach-emoji-active-color);
+}
+
+.attachButton:focus,
+.emojiButton:focus,
+.sendButton:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.messageForm {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Responsive */
+
+/*---*/
+@media (max-width: 320px) {
+    .messageComposer {
+        padding: 6px 8px;
+        gap: 4px;
+        min-height: 50px;
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    .leftButtons {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .inputContainer {
+        flex: 1;
+        position: relative;
+        min-height: 32px;
+        background-color: var(--input-bg);
+        border-radius: 16px;
+        padding: 0 8px;
+        box-shadow: 0 1px 2px var(--input-shadow);
+        border: 1px solid var(--input-border);
+    }
+
+    .messageInput {
+        width: 100%;
+        min-height: 32px;
+        max-height: 80px;
+        padding: 6px 0;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        font-size: 11px;
+        line-height: 1.2;
+        background: transparent;
+        resize: none;
+        color: var(--input-color);
+        box-sizing: border-box;
+    }
+
+    .messageInput::placeholder {
+        color: var(--input-placeholder);
+        font-size: 11px;
+    }
+
+    .sendButton {
+        background-color: var(--button-bg);
+        color: var(--button-color);
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+
+    .sendButton:hover {
+        background-color: var(--button-bg-hover);
+    }
+
+    .sendButton:disabled {
+        background-color: var(--button-bg-disabled);
+        cursor: not-allowed;
+    }
+
+    .attachButton,
+    .emojiButton {
+        background: none;
+        border: none;
+        color: var(--attach-emoji-color);
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 50%;
+        transition: background-color 0.18s, color 0.18s;
+        font-size: 12px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .attachButton:hover,
+    .emojiButton:hover {
+        background-color: var(--attach-emoji-hover-bg);
+    }
+
+    .attachButton:active,
+    .emojiButton:active {
+        background-color: var(--attach-emoji-active-bg);
+        color: var(--attach-emoji-active-color);
+    }
+}
+
+/*---*/
+@media (min-width: 321px) and (max-width: 480px) {
+    .messageComposer {
+        padding: 8px 10px;
+        gap: 6px;
+        min-height: 55px;
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    .leftButtons {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .inputContainer {
+        flex: 1;
+        position: relative;
+        min-height: 36px;
+        background-color: var(--input-bg);
+        border-radius: 18px;
+        padding: 0 10px;
+        box-shadow: 0 1px 2px var(--input-shadow);
+        border: 1px solid var(--input-border);
+    }
+
+    .messageInput {
+        width: 100%;
+        min-height: 36px;
+        max-height: 90px;
+        padding: 8px 0;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 1.3;
+        background: transparent;
+        resize: none;
+        color: var(--input-color);
+        box-sizing: border-box;
+    }
+
+    .messageInput::placeholder {
+        color: var(--input-placeholder);
+        font-size: 12px;
+    }
+
+    .sendButton {
+        background-color: var(--button-bg);
+        color: var(--button-color);
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .sendButton:hover {
+        background-color: var(--button-bg-hover);
+    }
+
+    .sendButton:disabled {
+        background-color: var(--button-bg-disabled);
+        cursor: not-allowed;
+    }
+
+    .attachButton,
+    .emojiButton {
+        background: none;
+        border: none;
+        color: var(--attach-emoji-color);
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 50%;
+        transition: background-color 0.18s, color 0.18s;
+        font-size: 14px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .attachButton:hover,
+    .emojiButton:hover {
+        background-color: var(--attach-emoji-hover-bg);
+    }
+
+    .attachButton:active,
+    .emojiButton:active {
+        background-color: var(--attach-emoji-active-bg);
+        color: var(--attach-emoji-active-color);
+    }
+}
+
+/*---*/
+@media (min-width: 481px) and (max-width: 768px) {
+    .messageComposer {
+        padding: 10px 12px;
+        gap: 8px;
+        min-height: 60px;
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    .leftButtons {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .inputContainer {
+        flex: 1;
+        position: relative;
+        min-height: 40px;
+        background-color: var(--input-bg);
+        border-radius: 20px;
+        padding: 0 12px;
+        box-shadow: 0 1px 3px var(--input-shadow);
+        border: 1px solid var(--input-border);
+    }
+
+    .messageInput {
+        width: 100%;
+        min-height: 40px;
+        max-height: 100px;
+        padding: 10px 0;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        font-size: 13px;
+        line-height: 1.4;
+        background: transparent;
+        resize: none;
+        color: var(--input-color);
+        box-sizing: border-box;
+    }
+
+    .messageInput::placeholder {
+        color: var(--input-placeholder);
+        font-size: 13px;
+    }
+
+    .sendButton {
+        background-color: var(--button-bg);
+        color: var(--button-color);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    .sendButton:hover {
+        background-color: var(--button-bg-hover);
+    }
+
+    .sendButton:disabled {
+        background-color: var(--button-bg-disabled);
+        cursor: not-allowed;
+    }
+
+    .attachButton,
+    .emojiButton {
+        background: none;
+        border: none;
+        color: var(--attach-emoji-color);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: background-color 0.18s, color 0.18s;
+        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .attachButton:hover,
+    .emojiButton:hover {
+        background-color: var(--attach-emoji-hover-bg);
+    }
+
+    .attachButton:active,
+    .emojiButton:active {
+        background-color: var(--attach-emoji-active-bg);
+        color: var(--attach-emoji-active-color);
+    }
+}
+
+/*--*/
+@media (min-width: 769px) {
+    .messageComposer {
+        padding: 10px 16px;
+        gap: 10px;
+        min-height: 60px;
+    }
+
+    .leftButtons {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .inputContainer {
+        flex: 1;
+        position: relative;
+        min-height: 40px;
+        background-color: var(--input-bg);
+        border-radius: 24px;
+        padding: 0 12px;
+        box-shadow: 0 1px 3px var(--input-shadow);
+        border: 1px solid var(--input-border);
+    }
+
+    .messageInput {
+        width: 100%;
+        min-height: 40px;
+        max-height: 120px;
+        padding: 9px 0 11px 0;
+        border: none;
+        outline: none;
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.4;
+        background: transparent;
+        resize: none;
+        color: var(--input-color);
+        box-sizing: border-box;
+    }
+
+    .messageInput::placeholder {
+        color: var(--input-placeholder);
+        font-size: 15px;
+    }
+
+    .sendButton {
+        background-color: var(--sendButton-bg);
+        color: var(--button-color);
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 20px;
+        flex-shrink: 0;
+        margin-left: 8px;
+    }
+
+    .sendButton:hover {
+        background-color: var(--button-bg-hover);
+    }
+
+    .sendButton:disabled {
+        background-color: var(--button-bg-disabled);
+        cursor: not-allowed;
+    }
+
+    .attachButton,
+    .emojiButton {
+        background: none;
+        border: none;
+        color: var(--attach-emoji-color);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: background-color 0.18s, color 0.18s;
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .attachButton:hover,
+    .emojiButton:hover {
+        background-color: var(--attach-emoji-hover-bg);
+    }
+
+    .attachButton:active,
+    .emojiButton:active {
+        background-color: var(--attach-emoji-active-bg);
+        color: var(--attach-emoji-active-color);
+    }
+
+    .attachButton:focus,
+    .emojiButton:focus,
+    .sendButton:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}

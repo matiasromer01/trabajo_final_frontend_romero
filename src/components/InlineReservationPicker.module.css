@@ -1,0 +1,155 @@
+:root {
+    --picker-bg: #ffffff;
+    --picker-border: #e0e0e0;
+    --label-color: #111b21;
+    --input-bg: #f0f2f5;
+    --input-border: #d1d7db;
+    --input-focus: #00a884;
+    --time-btn-bg: #f0f2f5;
+    --time-btn-hover: #e1f5ec;
+    --time-btn-selected: #00a884;
+    --time-btn-text: #111b21;
+    --time-btn-selected-text: #ffffff;
+    --confirm-btn-bg: #00a884;
+    --confirm-btn-hover: #008069;
+    --confirm-btn-text: #ffffff;
+}
+
+[data-theme="dark"] {
+    --picker-bg: #1f2428;
+    --picker-border: #3b4146;
+    --label-color: #e9edef;
+    --input-bg: #2a2f32;
+    --input-border: #3b4146;
+    --input-focus: #00a884;
+    --time-btn-bg: #2a2f32;
+    --time-btn-hover: #3b4146;
+    --time-btn-selected: #005c4b;
+    --time-btn-text: #e9edef;
+    --time-btn-selected-text: #e9edef;
+    --confirm-btn-bg: #005c4b;
+    --confirm-btn-hover: #008a6e;
+    --confirm-btn-text: #e9edef;
+}
+
+.picker {
+    background: var(--picker-bg);
+    border: 1px solid var(--picker-border);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 350px;
+}
+
+.dateSection,
+.timeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--label-color);
+}
+
+.dateInput {
+    padding: 10px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    background: var(--input-bg);
+    color: var(--label-color);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.dateInput:focus {
+    outline: none;
+    border-color: var(--input-focus);
+}
+
+.timeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.timeButton {
+    padding: 10px 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    background: var(--time-btn-bg);
+    color: var(--time-btn-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.timeButton:hover {
+    background: var(--time-btn-hover);
+    border-color: var(--input-focus);
+}
+
+.timeButton.selected {
+    background: var(--time-btn-selected);
+    color: var(--time-btn-selected-text);
+    border-color: var(--time-btn-selected);
+}
+
+.timeButton.disabled {
+    background: #cccccc;
+    color: #888888;
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: #bbbbbb;
+}
+
+.timeButton.disabled:hover {
+    background: #cccccc;
+    border-color: #bbbbbb;
+}
+
+.loadingText {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    color: var(--label-color);
+    font-size: 0.875rem;
+}
+
+.confirmButton {
+    background: var(--confirm-btn-bg);
+    color: var(--confirm-btn-text);
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 4px;
+}
+
+.confirmButton:hover {
+    background: var(--confirm-btn-hover);
+}
+
+.confirmButton:active {
+    transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .picker {
+        max-width: 100%;
+    }
+
+    .timeGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

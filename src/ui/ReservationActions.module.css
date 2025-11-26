@@ -1,0 +1,78 @@
+.actionsContainer {
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px solid var(--picker-border, #e0e0e0);
+    border-radius: 8px;
+    background: var(--picker-bg, #ffffff);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.summary {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--label-color, #111b21);
+}
+
+.buttonsRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.buttonsRow button {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+}
+
+.modifyButton {
+    background: #ffd666;
+    color: #3c3c3c;
+}
+.modifyButton:hover { background: #ffcc4d; }
+
+.cancelButton {
+    background: #ff5d5d;
+    color: #fff;
+}
+.cancelButton:hover { background: #e64b4b; }
+
+.finalizeButton {
+    background: #00a884;
+    color: #fff;
+}
+.finalizeButton:hover { background: #008069; }
+
+.buttonsRow button:active { transform: scale(0.96); }
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.disabledMessage {
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 8px 0;
+}
+
+[data-theme="dark"] .actionsContainer {
+    background: #1f2428;
+    border-color: #3b4146;
+}
+[data-theme="dark"] .summary { color: #e9edef; }
+[data-theme="dark"] .modifyButton { background: #e1b84a; color: #1f2428; }
+[data-theme="dark"] .modifyButton:hover { background: #d3aa40; }
+[data-theme="dark"] .cancelButton { background: #c84444; }
+[data-theme="dark"] .cancelButton:hover { background: #b73939; }
+[data-theme="dark"] .finalizeButton { background: #005c4b; }
+[data-theme="dark"] .finalizeButton:hover { background: #008a6e; }

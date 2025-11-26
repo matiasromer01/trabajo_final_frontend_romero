@@ -1,0 +1,571 @@
+:root {
+    /* Colores */
+    --conversation-bg: #f0f2f5;
+    --conversation-header-bg: #f0f2f5;
+    --conversation-header-border: #e2e8f0;
+    --avatar-bg: #00a884;
+    --avatar-color: #fff;
+    --contact-title: #111b21;
+    --status-color: #667781;
+    --action-btn-color: #54656f;
+    --action-btn-active-bg: #e9edef;
+    --action-btn-active-color: #00a884;
+    --action-btn-hover-bg: #f5f6f6;
+    --empty-title: #41525d;
+    --empty-text: #667781;
+}
+
+[data-theme="dark"] {
+    --conversation-bg: #181a20;
+    --conversation-header-bg: #23272a;
+    --conversation-header-border: #23272a;
+    --avatar-bg: #005c4b;
+    --avatar-color: #e9edef;
+    --contact-title: #e9edef;
+    --status-color: #bfc9d1;
+    --action-btn-color: #bfc9d1;
+    --action-btn-active-bg: #7092ab;
+    --action-btn-active-color: #00a884;
+    --action-btn-hover-bg: #23272a;
+    --empty-title: #bfc9d1;
+    --empty-text: #5c6b73;
+}
+
+.conversationPanel {
+    flex: 1;
+    background-color: var(--conversation-bg);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.conversationHeader {
+    background-color: var(--conversation-header-bg);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--conversation-header-border);
+    min-height: 70px;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--avatar-bg);
+    color: var(--avatar-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.avatarImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contactDetails h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--contact-title);
+}
+
+.status {
+    font-size: 13px;
+    color: var(--status-color);
+    margin-top: 2px;
+}
+
+.headerActions {
+    display: flex;
+    gap: 16px;
+}
+
+.actionButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--action-btn-color);
+    transition: background-color 0.18s, color 0.18s;
+    outline: none;
+    box-shadow: none;
+}
+
+.actionButton:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.actionButton:active {
+    background-color: var(--action-btn-active-bg);
+    color: var(--action-btn-active-color);
+    box-shadow: none;
+}
+
+.actionButton:hover {
+    background-color: var(--action-btn-hover-bg);
+    color: var(--action-btn-color);
+    transition: background-color 0.18s, color 0.18s;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--empty-text);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.emptyState h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--empty-title);
+}
+
+.emptyState p {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 400px;
+}
+
+/* Responsive */
+@media (max-width: 320px) {
+    .conversationPanel {
+        width: calc(100vw - 50px);
+        height: 100vh;
+        position: relative;
+    }
+
+    .conversationHeader {
+        padding: 8px 12px;
+        min-height: 50px;
+    }
+
+    .contactInfo {
+        flex: 1;
+    }
+
+    .avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        margin-right: 8px;
+    }
+
+    .contactDetails h3 {
+        font-size: 13px;
+    }
+
+    .status {
+        font-size: 10px;
+    }
+
+    .headerActions {
+        gap: 6px;
+    }
+
+    .actionButton {
+        font-size: 14px;
+        padding: 4px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .emptyState {
+        padding: 15px 10px;
+    }
+
+    .emptyState h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .emptyState p {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    .conversationPanel {
+        width: calc(100vw - 55px);
+        height: 100vh;
+        position: relative;
+    }
+
+    .conversationHeader {
+        padding: 10px 14px;
+        min-height: 55px;
+    }
+
+    .contactInfo {
+        flex: 1;
+    }
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        margin-right: 9px;
+    }
+
+    .contactDetails h3 {
+        font-size: 14px;
+    }
+
+    .status {
+        font-size: 11px;
+    }
+
+    .headerActions {
+        gap: 8px;
+    }
+
+    .actionButton {
+        font-size: 16px;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .emptyState {
+        padding: 18px 12px;
+    }
+
+    .emptyState h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .emptyState p {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .conversationPanel {
+        width: calc(100vw - 60px);
+        height: 100vh;
+        position: relative;
+    }
+
+    .conversationHeader {
+        padding: 12px 16px;
+        min-height: 60px;
+    }
+
+    .contactInfo {
+        flex: 1;
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .contactDetails h3 {
+        font-size: 15px;
+    }
+
+    .status {
+        font-size: 12px;
+    }
+
+    .headerActions {
+        gap: 10px;
+    }
+
+    .actionButton {
+        font-size: 17px;
+        padding: 6px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .emptyState {
+        padding: 20px 16px;
+    }
+
+    .emptyState h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .emptyState p {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .conversationPanel {
+        flex: 1;
+        max-width: none;
+        width: calc(100vw - 350px);
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    .conversationPanel {
+        max-width: calc(100vw - 460px);
+    }
+}
+
+.conversationHeader {
+    background-color: var(--conversation-header-bg);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--conversation-header-border);
+    min-height: 70px;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--avatar-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--avatar-color);
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+.avatarImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contactDetails h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--contact-title);
+}
+
+.status {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    color: var(--status-color);
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.actionButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    color: var(--action-btn-color);
+}
+
+.actionButton:hover {
+    background-color: var(--action-btn-hover-bg);
+}
+
+.emptyState {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.emptyState h3 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    color: var(--empty-title);
+    font-weight: 500;
+}
+
+.emptyState p {
+    margin: 0;
+    color: var(--empty-text);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.searchDropdown {
+    background-color: var(--search-bg);
+    border-bottom: 1px solid var(--conversation-header-border);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+}
+
+/* Animación de la barra de búsqueda al desplegarla*/
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.searchContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--search-container-bg);
+    border-radius: 20px;
+    border: 1px solid var(--search-container-border);
+    padding: 0 12px;
+    box-shadow: 0 1px 3px rgba(11, 20, 26, 0.13);
+    width: 50%;
+    height: 40px;
+    animation: slideDown 0.2s ease-out;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.chatSearchInput {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px 8px;
+    font-size: 14px;
+    color: var(--contact-title);
+    flex: 1;
+    font-family: "Segoe UI", Arial, sans-serif;
+    width: 0;
+    min-width: 0;
+}
+
+.chatSearchInput::placeholder {
+    color: var(--search-placeholder);
+}
+
+.closeSearchButton {
+    background: none;
+    border: none;
+    color: var(--close-btn-color);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeSearchButton:hover {
+    background-color: var(--close-btn-hover-bg);
+}
+
+.searchResults {
+    font-size: 12px;
+    color: var(--search-result-color);
+    text-align: center;
+    padding: 4px 8px;
+    background-color: var(--search-result-bg);
+    border-radius: 12px;
+    width: 80px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.highlight {
+    background-color: var(--highlight-bg);
+    color: var(--highlight-color);
+    padding: 1px 2px;
+    border-radius: 2px;
+}
+
+/* Estilos para la navegación de búsqueda */
+.searchNavigation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.searchCounter {
+    font-size: 12px;
+    color: var(--status-color);
+    white-space: nowrap;
+    min-width: 50px;
+    text-align: center;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    color: var(--nav-btn-color);
+    font-size: 10px;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+    background-color: #f5f6f6;
+}
+
+.navButton:disabled {
+    color: var(--nav-btn-disabled);
+    cursor: not-allowed;
+}
